@@ -1,6 +1,6 @@
 streamlit
 pymupdf
-nltk
+nltk>=3.8
 networkx
 pandas
 numpy
