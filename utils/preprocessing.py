@@ -1,4 +1,3 @@
-import re
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.util import ngrams
@@ -6,10 +5,16 @@ from nltk.util import ngrams
 def get_stopwords():
     return set(stopwords.words('english') + stopwords.words('indonesian'))
 
-def sentences_from_text(text):
+def sentences_from_text(text: str):
+    """
+    Memecah teks menjadi kalimat
+    """
     return sent_tokenize(text)
 
-def build_terms(text):
+def build_terms(text: str):
+    """
+    Membangun unigram dan bigram dari teks
+    """
     stop_words = get_stopwords()
 
     words = word_tokenize(text.lower())
