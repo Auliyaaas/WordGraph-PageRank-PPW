@@ -11,7 +11,7 @@ from utils.visualization import draw_graph
 
 @st.cache_resource
 def download_nltk():
-    nltk.download('punkt')
+    nltk.download('punkt_tab')
     nltk.download('stopwords')
 
 download_nltk()
@@ -64,3 +64,4 @@ if uploaded_pdf:
 else:
 
     st.info("Silakan upload satu file PDF untuk memulai.")
+
