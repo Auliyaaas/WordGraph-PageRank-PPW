@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-
+import streamlit as st
+import nltk
 
 from utils.pdf_reader import extract_text_from_pdf
 from utils.preprocessing import sentences_from_text, build_terms
@@ -8,6 +9,12 @@ from utils.cooccurrence import build_cooccurrence_matrix
 from utils.graph_analysis import build_filtered_graph, compute_all_centrality
 from utils.visualization import draw_graph
 
+@st.cache_resource
+def download_nltk():
+    nltk.download('punkt')
+    nltk.download('stopwords')
+
+download_nltk()
 
 st.set_page_config(page_title="Word Graph Centrality PDF", layout="wide")
 
@@ -55,4 +62,5 @@ if uploaded_pdf:
 
 
 else:
+
     st.info("Silakan upload satu file PDF untuk memulai.")
