@@ -34,7 +34,10 @@ if uploaded_pdf:
         text = extract_text_from_pdf(uploaded_pdf)
 
     sentences = sentences_from_text(text)
-    terms = build_terms(sentences)
+
+    full_text = " ".join(sentences)
+    
+    terms = build_terms(full_text)
 
     st.success(f"Total kalimat: {len(sentences)} | Total term: {len(terms)}")
 
@@ -64,4 +67,5 @@ if uploaded_pdf:
 else:
 
     st.info("Silakan upload satu file PDF untuk memulai.")
+
 
