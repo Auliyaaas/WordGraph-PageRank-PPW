@@ -30,26 +30,27 @@ st.set_page_config(page_title="Word Graph Centrality PDF", layout="wide")
 # =====================
 # SIDEBAR
 # =====================
+
 st.sidebar.title("⚙️ Pengaturan")
 
 min_weight = st.sidebar.slider("Minimal Bobot Ko-okurensi", 1, 10, 5)
 window_size = st.sidebar.slider("Ukuran Window", 1, 5, 2)
 
 st.sidebar.markdown("---")
-st.sidebar.subheader("📦 File Pendukung")
+st.sidebar.markdown("### 📦 Download File ZIP")
 
-zip_path = Path("assets/UAS-PPW-Aplikasi.zip")
+zip_path = "assets/UAS-PPW-Aplikasi.zip"
 
-if zip_path.exists():
+if os.path.exists(zip_path):
     with open(zip_path, "rb") as f:
         st.sidebar.download_button(
-            label="⬇️ Download File ZIP",
+            label="⬇️ Download Aplikasi (ZIP)",
             data=f,
             file_name="UAS-PPW-Aplikasi.zip",
             mime="application/zip"
         )
 else:
-    st.sidebar.warning("File ZIP tidak ditemukan di folder assets")
+    st.sidebar.error("❌ File ZIP tidak ditemukan")
 
 
 # =====================
